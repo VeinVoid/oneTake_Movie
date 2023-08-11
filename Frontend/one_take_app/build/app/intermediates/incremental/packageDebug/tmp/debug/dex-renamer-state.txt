@@ -1,0 +1,4 @@
+#Fri Aug 11 21:27:24 ICT 2023
+base.0=C\:\\Users\\LENOVO\\Documents\\PPLG Sekolah\\Tugas_Mobile_08_08_2023\\Frontend\\one_take_app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
