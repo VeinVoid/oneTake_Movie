@@ -3,18 +3,7 @@ import 'package:one_take/Page/SplashScreen.dart';
 
 class SignIn extends StatelessWidget {
   
-  Widget TextSignIn(String text, String colorCodeTxt, double fontSize, FontWeight fontWeight, TextAlign textAlign){
-    return Text(
-      text,
-      style: TextStyle(
-        color: Color(int.parse('0xff$colorCodeTxt')),
-        fontSize: fontSize,
-        fontFamily: 'Roboto',
-        fontWeight: fontWeight,
-        ),
-        textAlign: textAlign,
-    );
-  }
+  
 
   Widget BtnSignIn(String colorCodeBtn, double radius, double widthBorder, Widget textWidget, double left, double right, context) 
   {
@@ -34,22 +23,7 @@ class SignIn extends StatelessWidget {
       );
   }
 
-  Widget FormFieldSignIn(String codeColorText, double fontSize, String hintText){
-    return TextFormField(        
-      style: TextStyle(color: Color(int.parse('0xff$codeColorText')), fontSize: fontSize), 
-      decoration: InputDecoration(
-      hintText: hintText,
-      hintStyle: TextStyle(color: Color(0xff2C2C2C)), 
-      contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-      filled: true, 
-      fillColor: const Color(0xffD9D9D9), 
-      border: OutlineInputBorder(
-        borderSide: BorderSide.none,
-        borderRadius: BorderRadius.circular(5.0),
-        ),
-      ),
-    );
-  }
+  
 
   @override
   Widget build(BuildContext context) {

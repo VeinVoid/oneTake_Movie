@@ -46,13 +46,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget ImgLoader(String path, double widthImg, double heightImg){
-    return SvgPicture.asset(
-      path,
-      width: widthImg,
-      height: heightImg,
-      );
-  }
 
   Widget MovieBuilder(){
     return Container(
