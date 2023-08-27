@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import '../widget/Widget.dart';
 import 'package:one_take/Page/HomePage.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -31,11 +31,11 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              'assets/img/Ic_Splash_App.svg',
-              width: 127,
-              height: 141,
-              ),
+            SvgLoader(
+              path: 'assets/img/Ic_Splash_App.svg',
+              widthImg: 127,
+              heightImg: 141
+            )
           ],
         ),
       ),

@@ -1,53 +1,23 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:one_take/Page/SignInPage.dart';
+import 'package:one_take/Page/HomePage.dart';
 import 'package:one_take/Page/SplashScreen.dart';
+import '../widget/Widget.dart';
+import 'package:one_take/Page/SignInPage.dart';
 
 class LandingPage extends StatelessWidget {
 
-  Widget BtnLanding(String colorCodeBtn, double radius, double widthBorder, Widget textWidget, double left, double right, context) 
-  {
-    return ElevatedButton(
-      onPressed: (){
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SplashScreen()));
-      },
-      child: textWidget, 
-      style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.only(left: left, right: right, top: 12, bottom: 12),
-        backgroundColor: Color(int.parse('0xff$colorCodeBtn')),
-        side: BorderSide(width: widthBorder, color: Colors.black),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(radius),
-
-        )),
-      );
-  }
-
-  Widget TextLanding(String text, String colorCodeTxt, double fontSize, FontWeight fontWeight, TextAlign textAlign){
-    return Text(
-      text,
-      style: TextStyle(
-        color: Color(int.parse('0xff$colorCodeTxt')),
-        fontSize: fontSize,
-        fontFamily: 'Roboto',
-        fontWeight: fontWeight,
-        ),
-        textAlign: textAlign,
-    );
-  }
-
-  Widget WGT_TextSpan(String text1, String text2, String colorCodeTxt, double fontSize, FontWeight fontWeight1, FontWeight fontWeight2, context ){
+  Widget WGT_TextSpan({ String text1 = '', String text2 = '', String fontColor = '', double fontSize = 0, FontWeight fontWeight1 = FontWeight.normal, FontWeight fontWeight2 = FontWeight.normal, context }){
 
     TextStyle textStyle1 = TextStyle(
-      color: Color(int.parse('0xff$colorCodeTxt')),
+      color: Color(int.parse('0xff$fontColor')),
         fontSize: fontSize,
         fontFamily: 'Roboto',
         fontWeight: fontWeight1,
         );
         
     TextStyle textStyle2 = TextStyle(
-      color: Color(int.parse('0xff$colorCodeTxt')),
+      color: Color(int.parse('0xff$fontColor')),
         fontSize: fontSize,
         fontFamily: 'Roboto',
         fontWeight: fontWeight2,
@@ -69,14 +39,6 @@ class LandingPage extends StatelessWidget {
       ));
   }
 
-  Widget ImgLoader(String path, double widthImg, double heightImg){
-    return SvgPicture.asset(
-      path,
-      width: widthImg,
-      height: heightImg,
-      );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,27 +48,96 @@ class LandingPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-            ImgLoader("assets/img/Ic_Landing_App.svg", 92.86, 100),
-            Container(
-              margin: EdgeInsets.only(left: 33, right: 33, top: 40.15),
-              child: TextLanding('Get Movie Info Easily with App', '303030', 32, FontWeight.w700, TextAlign.center)
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 33, right: 33, top: 15.85),
-              child: TextLanding('Efficient Movie Information App Solution', '6C6C6C', 20, FontWeight.w600, TextAlign.center),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 72, bottom: 20),
-              child: BtnLanding('2C2C2C', 5, 0, TextLanding('Sign Up with Email ID', 'FFFFFF', 16, FontWeight.w600, TextAlign.center), 90, 90, context),
-            ),
-            Container(
-              margin: EdgeInsets.only(bottom: 20),
-              child: BtnLanding('FFFFFF', 5, 1, TextLanding('Sign Up with Google', '2C2C2C', 16, FontWeight.w600, TextAlign.center), 95, 95, context),
-            ),
-            Container(
-              child: WGT_TextSpan('Already have an account?', 'Sign In', '303030', 16, FontWeight.w400, FontWeight.w600, context)
-            )
-          ],
+              Container(
+                child: SvgLoader(
+                  path: 'assets/img/Ic_Landing_App.svg',
+                  widthImg: 92.86,
+                  heightImg: 100
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  left: 33, 
+                  right: 33, 
+                  top: 40.15
+                ),
+                child: TextWidget(
+                  textLabel: 'Get Movie Info Easily with App', 
+                  fontSize: 32, 
+                  fontWeight: FontWeight.w700,
+                  fontAlign : 
+                  TextAlign.center)
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  left: 33, 
+                  right: 33, 
+                  top: 15.85
+                ),
+                child: TextWidget(
+                  textLabel: 'Efficient Movie Information App Solution',
+                  fontColor: '6C6C6C',
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  fontAlign: TextAlign.center
+                )
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  top: 72, 
+                  bottom: 20
+                ),
+                child: ElevatedButtonWidget(
+                  btnColor: '2C2C2C',
+                  radius: 5,
+                  widthBorder: 0,
+                  left: 90,
+                  right: 90,
+                  textWidget: TextWidget(
+                    textLabel: 'Sign Up with Email ID',
+                    fontColor: 'FFFFFF',
+                    fontWeight: FontWeight.w600,
+                    fontAlign: TextAlign.center
+                  ),
+                  action: () => Navigator.pushReplacement(
+                    context, 
+                    MaterialPageRoute(builder: (context) => HomePage())),
+                )
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  bottom: 20
+                ),
+                child: ElevatedButtonWidget(
+                  btnColor: 'FFFFFF',
+                  radius: 5,
+                  widthBorder: 1,
+                  left: 95,
+                  right: 95,
+                  textWidget: TextWidget(
+                    textLabel: 'Sign Up with Google',
+                    fontColor: '2C2C2C',
+                    fontWeight: FontWeight.w600,
+                    fontAlign: TextAlign.center
+                  ),
+                  action: () => Navigator.pushReplacement(
+                    context, 
+                    MaterialPageRoute(builder: (context) => SplashScreen())
+                  ),
+                )
+              ),
+              Container(
+                child: WGT_TextSpan(
+                  text1: 'Already have an account?', 
+                  text2: ' Sign In', 
+                  fontColor: '303030', 
+                  fontSize: 16, 
+                  fontWeight1: FontWeight.w400, 
+                  fontWeight2: FontWeight.w600, 
+                  context: context
+                )
+              )
+            ],
           )
         ),
       ),
