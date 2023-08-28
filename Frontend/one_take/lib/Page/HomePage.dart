@@ -51,10 +51,6 @@ class _HomePageState extends State<HomePage> {
                     setState(() {
                       searchText = value.isNotEmpty ? value.trim() : null;
                     });
-<<<<<<< HEAD
-                    print(searchText);
-=======
->>>>>>> c907206a615852c09214c8a853056b6c090ad3c6
                   }
                 )
               ),
@@ -138,10 +134,7 @@ class _HomePageState extends State<HomePage> {
                     child: MovieBuilder(
                       shortType: 'best',
                       modelType: 'ver',
-<<<<<<< HEAD
                       searchText: searchText,
-=======
->>>>>>> c907206a615852c09214c8a853056b6c090ad3c6
                       context: context,
                     ),
                   ),
