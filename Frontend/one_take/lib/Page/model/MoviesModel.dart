@@ -30,11 +30,7 @@ class Movie {
 
 MovieAPI movieAPI = MovieAPI();
 
-<<<<<<< HEAD
 Widget ModelLayout({ String linkImg = '', String textTitle = '', String textGenre = '', String textRelease = '', String textRate = '', String modelType = '', double left = 0, double right = 0, double top = 0, double bottom = 0 }){
-=======
-Widget ModelLayout({ String linkImg = '', String textTitle = '', String textGenre = '', String modelType = '', double left = 0, double right = 0, double top = 0, double bottom = 0 }){
->>>>>>> c907206a615852c09214c8a853056b6c090ad3c6
   if(modelType == 'horiz'){
     return Container(
       margin: EdgeInsets.only(left: left), 
@@ -83,11 +79,7 @@ Widget ModelLayout({ String linkImg = '', String textTitle = '', String textGenr
           Container(
             margin: EdgeInsets.only(bottom: 20),
             width: 107,
-<<<<<<< HEAD
             height: 180,
-=======
-            height: 160,
->>>>>>> c907206a615852c09214c8a853056b6c090ad3c6
             child: Image(
               image: NetworkImage(linkImg),
               fit: BoxFit.cover,
@@ -97,7 +89,6 @@ Widget ModelLayout({ String linkImg = '', String textTitle = '', String textGenr
             child: Column(
               children: [
                 Container(
-<<<<<<< HEAD
                   width: 225,
                   margin: EdgeInsets.only(
                     left: 10
@@ -156,30 +147,6 @@ Widget ModelLayout({ String linkImg = '', String textTitle = '', String textGenr
                 ),
               ],
             )
-=======
-                  
-                  child: TextWidget(
-                    textLabel: textTitle,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    fontAlign: TextAlign.left,
-                    overflow: TextOverflow.ellipsis,
-                    maxLine: 2 
-                  ),
-                ),
-                Container(
-                  child: TextWidget(
-                    textLabel: textGenre,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    fontAlign: TextAlign.left,
-                    overflow: TextOverflow.ellipsis,
-                    maxLine: 2
-                  )
-                )
-              ],
-            ),
->>>>>>> c907206a615852c09214c8a853056b6c090ad3c6
           )
         ],
       ),
@@ -191,11 +158,7 @@ Widget ModelLayout({ String linkImg = '', String textTitle = '', String textGenr
 }
 
 
-<<<<<<< HEAD
 Widget MovieBuilder({ String shortType = '', String modelType = '', String? searchText, double height = 0, bool search = false, context }) {
-=======
-Widget MovieBuilder({ String shortType = '', String modelType = '', double height = 0, bool search = false, context }) {
->>>>>>> c907206a615852c09214c8a853056b6c090ad3c6
   return Container(
     margin: EdgeInsets.only(
       top: 15,
@@ -213,12 +176,9 @@ Widget MovieBuilder({ String shortType = '', String modelType = '', double heigh
           return Center(child: Text('No data available.'));
         } else {
           List<Movie> listMovie = snapshot.data!;
-<<<<<<< HEAD
           if (searchText != null) {
             listMovie = listMovie.where((movie) => movie.title.toLowerCase().contains(searchText.toLowerCase())).toList();
           }
-=======
->>>>>>> c907206a615852c09214c8a853056b6c090ad3c6
           if (shortType == 'release') {
             listMovie.sort((a, b) => b.release.compareTo(a.release));
           } else if (shortType == 'best') {
@@ -251,11 +211,8 @@ Widget MovieBuilder({ String shortType = '', String modelType = '', double heigh
                   linkImg: listMovie[index].poster,
                   textTitle: listMovie[index].title,
                   textGenre: listMovie[index].genre,
-<<<<<<< HEAD
                   textRelease: listMovie[index].release.toString(),
                   textRate: listMovie[index].rate.toString(),
-=======
->>>>>>> c907206a615852c09214c8a853056b6c090ad3c6
                   modelType: modelType,
                   top: 10,
                   bottom: 5
